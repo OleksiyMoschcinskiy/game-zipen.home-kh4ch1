@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>zipen.home — Kitchen Simulator (Hard Mode)</title>
+    <meta name="description" content="Кухонний симулятор zipen.home: випікайте хачапурі, встигайте за замовленнями та б’йте рекорди.">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="zipen.home">
+    <meta property="og:title" content="zipen.home — Kitchen Simulator">
+    <meta property="og:description" content="Випікайте хачапурі, встигайте за замовленнями та б’йте рекорди!">
+    <meta property="og:url" content="https://kh4ch1-813d9.web.app/">
+    <meta property="og:image" content="https://kh4ch1-813d9.web.app/assets/cover.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="746">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="zipen.home — Kitchen Simulator">
+    <meta name="twitter:description" content="Випікайте хачапурі, встигайте за замовленнями та б’йте рекорди!">
+    <meta name="twitter:image" content="https://kh4ch1-813d9.web.app/assets/cover.jpg">
+    <meta name="theme-color" content="#0a0c10">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <form class="app-form">
+
+        <!-- ПЕРЕМИКАЧ КНИГИ РЕЦЕПТІВ -->
+        <input type="checkbox" id="toggle-recipes" class="state-input">
+
+        <!-- ЕКРАНИ -->
+        <input type="radio" name="screen" id="scr-start" class="state-input" checked>
+        <input type="radio" name="screen" id="scr-lvl1-prep" class="state-input">
+        <input type="radio" name="screen" id="scr-lvl1-oven" class="state-input">
+        <input type="radio" name="screen" id="scr-lvl1-post" class="state-input">
+        <input type="radio" name="screen" id="scr-lvl1-win" class="state-input">
+        <input type="radio" name="screen" id="scr-lvl2-prep" class="state-input">
+        <input type="radio" name="screen" id="scr-lvl2-oven" class="state-input">
+        <input type="radio" name="screen" id="scr-lvl2-post" class="state-input">
+        <input type="radio" name="screen" id="scr-lvl2-win" class="state-input">
+        <input type="radio" name="screen" id="scr-lvl3-prep" class="state-input">
+        <input type="radio" name="screen" id="scr-lvl3-oven" class="state-input">
+        <input type="radio" name="screen" id="scr-lvl3-post" class="state-input">
+        <input type="radio" name="screen" id="scr-lvl3-win" class="state-input">
+        <input type="radio" name="screen" id="scr-lvl4-prep" class="state-input">
+        <input type="radio" name="screen" id="scr-lvl4-oven" class="state-input">
+        <input type="radio" name="screen" id="scr-lvl4-post" class="state-input">
+        <input type="radio" name="screen" id="scr-final-win" class="state-input">
+        <input type="radio" name="screen" id="scr-lose-raw" class="state-input">
+        <input type="radio" name="screen" id="scr-lose-burnt" class="state-input">
+        <input type="radio" name="screen" id="scr-lose-time" class="state-input">
+
+        <!-- СТАНИ РІВНЯ 1 -->
+        <input type="checkbox" id="l1-dough" class="state-input">
+        <input type="checkbox" id="l1-knead" class="state-input">
+        <input type="checkbox" id="l1-sculpt" class="state-input">
+        <input type="checkbox" id="l1-cheese" class="state-input">
+        <input type="checkbox" id="l1-yolk" class="state-input">
+        <input type="checkbox" id="l1-butter" class="state-input">
+        <input type="checkbox" id="l1-greens" class="state-input">
+        <input type="checkbox" id="l1-pineapple" class="state-input">
+        <input type="checkbox" id="l1-ketchup" class="state-input">
+        <input type="checkbox" id="l1-mushrooms" class="state-input">
+        <input type="checkbox" id="l1-olives" class="state-input">
+        <input type="checkbox" id="l1-post-yolk" class="state-input">
+        <input type="checkbox" id="l1-post-butter" class="state-input">
+
+        <!-- СТАНИ РІВНЯ 2 -->
+        <input type="checkbox" id="l2-dough" class="state-input">
+        <input type="checkbox" id="l2-knead" class="state-input">
+        <input type="checkbox" id="l2-sculpt" class="state-input">
+        <input type="checkbox" id="l2-cheese" class="state-input">
+        <input type="checkbox" id="l2-yolk" class="state-input">
+        <input type="checkbox" id="l2-greens" class="state-input">
+        <input type="checkbox" id="l2-pineapple" class="state-input">
+        <input type="checkbox" id="l2-mushrooms" class="state-input">
+        <input type="checkbox" id="l2-ketchup" class="state-input">
+        <input type="checkbox" id="l2-butter" class="state-input">
+        <input type="checkbox" id="l2-olives" class="state-input">
+        <input type="checkbox" id="l2-post-butter" class="state-input">
+        <input type="checkbox" id="l2-post-cut" class="state-input">
+
+        <!-- СТАНИ РІВНЯ 3 -->
+        <input type="checkbox" id="l3-dough" class="state-input">
+        <input type="checkbox" id="l3-knead" class="state-input">
+        <input type="checkbox" id="l3-sculpt" class="state-input">
+        <input type="checkbox" id="l3-meat" class="state-input">
+        <input type="checkbox" id="l3-yolk" class="state-input">
+        <input type="checkbox" id="l3-onion" class="state-input">
+        <input type="checkbox" id="l3-spices" class="state-input">
+        <input type="checkbox" id="l3-butter" class="state-input">
+        <input type="checkbox" id="l3-cheese" class="state-input">
+        <input type="checkbox" id="l3-pineapple" class="state-input">
+        <input type="checkbox" id="l3-greens" class="state-input">
+        <input type="checkbox" id="l3-olives" class="state-input">
+        <input type="checkbox" id="l3-post-butter" class="state-input">
+        <input type="checkbox" id="l3-post-cut" class="state-input">
+
+        <!-- СТАНИ РІВНЯ 4 -->
+        <input type="checkbox" id="l4-dough" class="state-input">
+        <input type="checkbox" id="l4-knead" class="state-input">
+        <input type="checkbox" id="l4-sculpt" class="state-input">
+        <input type="checkbox" id="l4-cheese" class="state-input">
+        <input type="checkbox" id="l4-meat" class="state-input">
+        <input type="checkbox" id="l4-yolk" class="state-input">
+        <input type="checkbox" id="l4-greens" class="state-input">
+        <input type="checkbox" id="l4-butter" class="state-input">
+        <input type="checkbox" id="l4-pineapple" class="state-input">
+        <input type="checkbox" id="l4-ketchup" class="state-input">
+        <input type="checkbox" id="l4-mushrooms" class="state-input">
+        <input type="checkbox" id="l4-post-butter" class="state-input">
+        <input type="checkbox" id="l4-post-cut" class="state-input">
+
+        <div class="restaurant-app">
+            <!-- МОДАЛЬНЕ ВІКНО КНИГИ РЕЦЕПТІВ -->
+            <div class="recipe-modal">
+                <div class="recipe-book-card">
+                    <div class="recipe-book-header">
+                        <h3 style="font-size: 1.05rem; font-weight: 800; letter-spacing: 0.03em;">📖 КНИГА РЕЦЕПТІВ ZIPEN.HOME</h3>
+                        <label for="toggle-recipes" class="btn" style="padding: 8px 16px; font-size: 0.78rem; width: auto;">Закрити ✖</label>
+                    </div>
+                    <div class="recipe-list">
+                        <div class="recipe-item">
+                            <div class="recipe-preview-box">
+                                <div class="dish-ajaruli mini-dish">
+                                    <div class="crust-spots"></div>
+                                    <div class="dish-yolk"></div>
+                                    <div class="dish-butter-melt"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <h4>1. Хачапурі по-аджарськи</h4>
+                                <p><strong>До печі:</strong> Сулугуні + Масло.<br><strong>Після печі:</strong> Жовток в центр + Масло.</p>
+                            </div>
+                        </div>
+                        <div class="recipe-item">
+                            <div class="recipe-preview-box">
+                                <div class="dish-megruli mini-dish">
+                                    <div class="cheese-bubbles"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <h4>2. Хачапурі по-мегрельськи</h4>
+                                <p><strong>До печі:</strong> Імеретинський → Заліпити → Яйце → Моцарела.<br><strong>Після печі:</strong> Масло → Розрізати на 8.</p>
+                            </div>
+                        </div>
+                        <div class="recipe-item">
+                            <div class="recipe-preview-box">
+                                <div class="dish-kubdari mini-dish">
+                                    <div class="kubdari-vent"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <h4>3. Фірмовий Кубдарі</h4>
+                                <p><strong>До печі:</strong> М'ясо → Заліпити → Яйце.<br><strong>Після печі:</strong> Масло → Розрізати на 8.</p>
+                            </div>
+                        </div>
+                        <div class="recipe-item">
+                            <div class="recipe-preview-box">
+                                <div class="dish-tsar mini-dish">
+                                    <div class="cheese-bubbles"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <h4>4. Лобіані</h4>
+                                <p><strong>До печі:</strong> Лобіо → Заліпити → У піч.<br><strong>Після печі:</strong> Масло → Розрізати на 8.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <header class="app-header">
+                <div class="brand-logo">
+                    zipen<span>.home</span>
+                    <div class="brand-divider"></div>
+                    <span class="brand-sub">Hardcore Shift</span>
+                </div>
+                <div class="header-actions">
+                    <label for="toggle-recipes" class="recipe-book-btn">📖 Рецепти</label>
+                     <button type="button" id="auth-chip" class="auth-chip" hidden title="Вийти з акаунта"><span class="auth-chip-name"></span><span>Вийти</span></button>
+                    <div class="lang-switch" id="lang-switch">
+                        <button type="button" class="recipe-book-btn lang-btn" id="lang-btn" aria-haspopup="true" aria-expanded="false" aria-label="Мова">🌐 <span class="lang-btn-label">Мова</span> <span class="lang-code">UA</span></button>
+                        <div class="lang-menu" role="menu">
+                            <button type="button" class="lang-opt" role="menuitemradio" data-lang="uk"><b>UA</b>Українська</button>
+                            <button type="button" class="lang-opt" role="menuitemradio" data-lang="sk"><b>SK</b>Slovenčina</button>
+                            <button type="button" class="lang-opt" role="menuitemradio" data-lang="en"><b>EN</b>English</button>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- 1. СТАРТОВИЙ ЕКРАН (МЕНЮ) -->
+            <section class="screen screen-start">
+                <div class="hero-dashboard">
+                    <div>
+                        <div class="status-pill">
+                            <span class="status-dot"></span>
+                            Час пік • Жорсткий таймер на чек
+                        </div>
+                        <h1 class="hero-title">Авторська пекарня <span>zipen.home</span></h1>
+                        <p class="hero-subtitle">
+                            Гості чекають! На кожне замовлення діє суворий ліміт часу (45с → 30с), вузькі зони випікання в печі та вимога бездоганної точності. Встигни приготувати, нарізати й зняти кожен чек.
+                        </p>
+                    </div>
+
+                    <div class="chef-profile-card">
+                        <div class="chef-avatar-slot chef-avatar-lg">
+                            <img src="assets/chef.png" alt="Шеф zipen.home">
+                            <div class="avatar-placeholder">
+                                <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+                                <span>chef.png</span>
+                            </div>
+                        </div>
+                        <div>
+                            <div style="font-weight: 800; font-size: 0.95rem;">Шеф-пекар зміни</div>
+                            <div class="chef-role-tag">zipen.home • Hardcore Station</div>
+                        </div>
+                        <div class="shift-metrics">
+                            <div class="metric-box">
+                                <strong>4 чеки</strong>
+                                <span>Меню</span>
+                            </div>
+                            <div class="metric-box">
+                                <strong>380°C</strong>
+                                <span>Макс. жар</span>
+                            </div>
+                            <div class="metric-box">
+                                <strong>5.0 ★</strong>
+                                <span>Рейтинг</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Вітрина меню зміни -->
+                <div class="menu-showcase">
+                    <div class="showcase-card">
+                        <span class="showcase-lvl">Рівень 01 • 45с • 9%</span>
+                        <div class="showcase-visual">
+                            <div class="dish-ajaruli mini-dish">
+                                <div class="crust-spots"></div>
+                                <div class="dish-yolk"></div>
+                                <div class="dish-butter-melt"></div>
+                            </div>
+                        </div>
+                        <h4>По-аджарськи</h4>
+                        <p>Сулугуні • Жовток • Масло</p>
+                    </div>
+
+                    <div class="showcase-card">
+                        <span class="showcase-lvl">Рівень 02 • 40с • 7%</span>
+                        <div class="showcase-visual">
+                            <div class="dish-megruli mini-dish">
+                                <div class="cheese-bubbles"></div>
+                            </div>
+                        </div>
+                        <h4>По-мегрельськи</h4>
+                        <p>Імеретинський • Моцарела</p>
+                    </div>
+
+                    <div class="showcase-card">
+                        <span class="showcase-lvl">Рівень 03 • 35с • 6%</span>
+                        <div class="showcase-visual">
+                            <div class="dish-kubdari mini-dish">
+                                <div class="kubdari-vent"></div>
+                            </div>
+                        </div>
+                        <h4>Кубдарі</h4>
+                        <p>Рубане м'ясо • Яйце</p>
+                    </div>
+
+                    <div class="showcase-card" style="border-color: rgba(239, 68, 68, 0.45);">
+                        <span class="showcase-lvl" style="color: #fca5a5;">BOSS 04 • 30с • 5%</span>
+                        <div class="showcase-visual">
+                            <div class="dish-tsar mini-dish">
+                                <div class="cheese-bubbles"></div>
+                            </div>
+                        </div>
+                        <h4>Лобіані</h4>
+                        <p>Бобова начинка</p>
+                    </div>
+                </div>
+
+                <div class="start-cta-row">
+                    <label for="scr-lvl1-prep" class="btn" style="min-width: 240px;">Розпочати зміну 🔥</label>
+                    <label for="toggle-recipes" class="btn btn-outline" style="min-width: 210px;">📖 Книга рецептів</label>
+                </div>
+            </section>
+
+            <!-- 2. РІВЕНЬ 1: ЗБІРКА АДЖАРСЬКОГО -->
+            <section class="screen screen-lvl1-prep">
+                <div class="ticket-rail">
+                    <span class="waiter-hand-ticket">🫴</span>
+                    <div class="order-ticket-paper">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div class="chef-avatar-slot chef-avatar-sm">
+                                <img src="assets/chef.png" alt="Шеф">
+                                <div class="avatar-placeholder"><svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div>
+                            </div>
+                            <div>
+                                <div class="order-title">ЧЕК №101 • Хачапурі по-аджарськи</div>
+                                <div class="order-recipe-hint">Склад у «📖 Рецепти» зверху</div>
+                            </div>
+                        </div>
+                        <div class="ticket-right-meta">
+                            <span class="ticket-timer-badge" data-lvl-timer="1">⏱ 45.0с</span>
+                            <span class="ticket-stamp">1 / 4</span>
+                        </div>
+                        <div class="ticket-timer-bar"><i data-lvl-bar="1"></i></div>
+                    </div>
+                </div>
+
+                <div class="baker-table">
+                    <div class="interactive-board">
+                        <label for="l1-dough" class="board-click-zone zone-step-1"><span class="board-prompt-pill">👆 Натисни: покласти тісто</span></label>
+                        <label for="l1-knead" class="board-click-zone zone-step-2"><span class="board-prompt-pill">👐 Натисни: розрівняти</span></label>
+                        <label for="l1-sculpt" class="board-click-zone zone-step-3"><span class="board-prompt-pill">🤌 Натисни: зліпити човник</span></label>
+
+                        <div class="dough-entity">
+                            <div class="glaze-sheen"></div>
+                            <div class="boat-tip tip-left"></div>
+                            <div class="boat-tip tip-right"></div>
+                            <div class="layer-cheese"></div>
+                            <div class="layer-yolk"></div>
+                            <div class="layer-butter"></div>
+                            <span class="layer-extra pos-1">🍍</span>
+                            <span class="layer-extra pos-2">🍅</span>
+                            <span class="layer-extra pos-3">🌿</span>
+                            <span class="layer-extra pos-4">🍄</span>
+                        </div>
+                    </div>
+
+                    <div class="ingredients-grid">
+                        <label for="l1-cheese" class="ing-card"><span class="emoji">🧀</span>Сулугуні</label>
+                        <label for="l1-yolk" class="ing-card"><span class="emoji">🥚</span>Яйце</label>
+                        <label for="l1-butter" class="ing-card"><span class="emoji">🧈</span>Масло</label>
+                        <label for="l1-greens" class="ing-card"><span class="emoji">🌿</span>Зелень</label>
+                        <label for="l1-pineapple" class="ing-card"><span class="emoji">🍍</span>Ананас</label>
+                        <label for="l1-ketchup" class="ing-card"><span class="emoji">🍅</span>Кетчуп</label>
+                        <label for="l1-mushrooms" class="ing-card"><span class="emoji">🍄</span>Гриби</label>
+                        <label for="l1-olives" class="ing-card"><span class="emoji">🫒</span>Оливки</label>
+                    </div>
+                </div>
+
+                <div class="action-bar">
+                    <span class="hint-text">Зліпи основу по центру столу та обери інгредієнти за рецептом</span>
+                    <label for="scr-lvl1-oven" class="btn btn-bake-ready">У піч (260°C) 🔥</label>
+                </div>
+            </section>
+
+            <!-- 3. РІВЕНЬ 1: ПІЧ -->
+            <section class="screen screen-lvl1-oven">
+                <div class="ticket-rail">
+                    <div class="order-ticket-paper">
+                        <div>
+                            <div class="order-title">ПІЧ ZIPEN.HOME • По-аджарськи</div>
+                            <div class="order-recipe-hint">Вихопи лопатою у зеленій зоні (9%)</div>
+                        </div>
+                        <div class="ticket-right-meta">
+                            <span class="ticket-timer-badge" data-lvl-timer="1">⏱ 45.0с</span>
+                            <span class="ticket-stamp">1 / 4</span>
+                        </div>
+                        <div class="ticket-timer-bar"><i data-lvl-bar="1"></i></div>
+                    </div>
+                </div>
+
+                <div class="oven-chamber">
+                    <span class="temp-badge">🔥 260°C</span>
+                    <div class="baker-peel">
+                        <div class="dish-ajaruli lvl1-bake">
+                            <div class="crust-spots"></div>
+                        </div>
+                    </div>
+                    <div class="timer-bar-container lvl1-bar">
+                        <div class="zone-raw"></div><div class="zone-perfect"></div><div class="zone-burnt"></div>
+                        <div class="timer-needle lvl1-needle"></div>
+                    </div>
+                </div>
+
+                <div class="oven-controls">
+                    <label for="scr-lose-raw" class="btn btn-oven-state lvl1-raw">Вихопити лопатою ⚡</label>
+                    <label for="scr-lvl1-post" class="btn btn-success btn-oven-state lvl1-perf">Вихопити лопатою ⚡</label>
+                    <label for="scr-lose-burnt" class="btn btn-dark btn-oven-state lvl1-burn">Вихопити лопатою ⚡</label>
+                </div>
+            </section>
+
+            <!-- 3B. РІВЕНЬ 1: ФІНАЛЬНЕ ДОВЕДЕННЯ НА СТОЛІ -->
+            <section class="screen screen-lvl1-post">
+                <div class="ticket-rail">
+                    <div class="order-ticket-paper">
+                        <div>
+                            <div class="order-title">ЧЕК №101 • Фінальна подача Аджарського</div>
+                            <div class="order-recipe-hint">Розбий жовток у центр і змасти маслом</div>
+                        </div>
+                        <div class="ticket-right-meta">
+                            <span class="ticket-timer-badge" data-lvl-timer="1">⏱ 45.0с</span>
+                            <span class="ticket-stamp">1 / 4</span>
+                        </div>
+                        <div class="ticket-timer-bar"><i data-lvl-bar="1"></i></div>
+                    </div>
+                </div>
+
+                <div class="baker-table">
+                    <div class="interactive-board post-board">
+                        <div class="dough-entity">
+                            <div class="dish-ajaruli">
+                                <div class="crust-spots"></div>
+                                <div class="dish-yolk post-yolk-el"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ingredients-grid" style="grid-template-columns: repeat(2, 1fr); max-width: 340px;">
+                        <label for="l1-post-yolk" class="ing-card"><span class="emoji">🥚</span>Жовток у центр</label>
+                        <label for="l1-post-butter" class="ing-card"><span class="emoji">🧈</span>Змастити маслом</label>
+                    </div>
+                </div>
+
+                <div class="action-bar">
+                    <span class="hint-text">Розбий жовток у центр і змасти маслом</span>
+                    <label for="scr-lvl1-win" class="btn btn-bake-ready btn-success" data-serve-ticket="1">Подати та зняти чек 🧾</label>
+                </div>
+            </section>
+
+            <!-- 4. ПЕРЕМОГА ЕТАП 1 -->
+            <section class="screen screen-lvl1-win result-screen">
+                <div class="serving-table">
+                    <div class="wooden-board">
+                        <div class="steam-waves"><span>♨️</span><span>♨️</span></div>
+                        <div class="dish-serve-motion">
+                            <div class="dish-ajaruli" style="transform: scale(0.88);">
+                                <div class="crust-spots"></div>
+                                <div class="dish-yolk"></div>
+                                <div class="dish-butter-melt"></div>
+                            </div>
+                            <span class="serve-hands">🙌</span>
+                        </div>
+                    </div>
+                </div>
+                <h2 class="result-title">Хачапурі по-аджарськи подано • Чек знято</h2>
+                <p class="result-desc">Рум'яний хрусткий човник, тягучий сулугуні, свіжий жовток і вершкове масло — еталонна подача zipen.home.</p>
+                <label for="scr-lvl2-prep" class="btn btn-success" style="max-width: 320px;">Чек №102 (Рівень 2 • 40с) ➡️</label>
+            </section>
+
+            <!-- 5. РІВЕНЬ 2: ЗБІРКА МЕГРЕЛЬСЬКОГО -->
+            <section class="screen screen-lvl2-prep">
+                <div class="ticket-rail">
+                    <span class="waiter-hand-ticket">🫴</span>
+                    <div class="order-ticket-paper">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div class="chef-avatar-slot chef-avatar-sm">
+                                <img src="assets/chef.png" alt="Шеф">
+                                <div class="avatar-placeholder"><svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div>
+                            </div>
+                            <div>
+                                <div class="order-title">ЧЕК №102 • Хачапурі по-мегрельськи</div>
+                                <div class="order-recipe-hint">Звір склад у «📖 Рецепти»</div>
+                            </div>
+                        </div>
+                        <div class="ticket-right-meta">
+                            <span class="ticket-timer-badge" data-lvl-timer="2">⏱ 40.0с</span>
+                            <span class="ticket-stamp">2 / 4</span>
+                        </div>
+                        <div class="ticket-timer-bar"><i data-lvl-bar="2"></i></div>
+                    </div>
+                </div>
+
+                <div class="baker-table">
+                    <div class="interactive-board">
+                        <label for="l2-dough" class="board-click-zone zone-step-1"><span class="board-prompt-pill">👆 Натисни: покласти тісто</span></label>
+                        <label for="l2-knead" class="board-click-zone zone-step-2"><span class="board-prompt-pill">👐 Натисни: розрівняти корж</span></label>
+                        <label for="l2-sculpt" class="board-click-zone zone-step-3"><span class="board-prompt-pill">🤌 Натисни: зліпити бортик</span></label>
+
+                        <div class="dough-entity">
+                            <div class="glaze-sheen"></div>
+                            <div class="layer-cheese" style="width: 90%; height: 90%;"></div>
+                            <div class="layer-yolk"></div>
+                            <span class="layer-extra pos-1">🌿</span>
+                            <span class="layer-extra pos-2">🍍</span>
+                            <span class="layer-extra pos-3">🍄</span>
+                            <span class="layer-extra pos-4">🍅</span>
+                        </div>
+                    </div>
+
+                    <div class="ingredients-grid">
+                        <label for="l2-cheese" class="ing-card"><span class="emoji">🧀</span>Імеретинський сир</label>
+                        <label for="l2-yolk" class="ing-card"><span class="emoji">🥚</span>Яйце</label>
+                        <label for="l2-greens" class="ing-card"><span class="emoji">⚪</span>Моцарела</label>
+                        <label for="l2-butter" class="ing-card"><span class="emoji">🧈</span>Масло</label>
+                        <label for="l2-pineapple" class="ing-card"><span class="emoji">🍍</span>Ананас</label>
+                        <label for="l2-mushrooms" class="ing-card"><span class="emoji">🍄</span>Гриби</label>
+                        <label for="l2-ketchup" class="ing-card"><span class="emoji">🍅</span>Кетчуп</label>
+                        <label for="l2-olives" class="ing-card"><span class="emoji">🫒</span>Оливки</label>
+                    </div>
+                </div>
+
+                <div class="action-bar">
+                    <span class="hint-text">Виконай ліпку та додай точні інгредієнти</span>
+                    <label for="scr-lvl2-oven" class="btn btn-bake-ready">У піч (300°C) 🔥</label>
+                </div>
+            </section>
+
+            <!-- 6. РІВЕНЬ 2: ПІЧ -->
+            <section class="screen screen-lvl2-oven">
+                <div class="ticket-rail">
+                    <div class="order-ticket-paper">
+                        <div>
+                            <div class="order-title">ПІЧ ZIPEN.HOME • По-мегрельськи</div>
+                            <div class="order-recipe-hint">Різкі ривки температури • Зелена зона 7%</div>
+                        </div>
+                        <div class="ticket-right-meta">
+                            <span class="ticket-timer-badge" data-lvl-timer="2">⏱ 40.0с</span>
+                            <span class="ticket-stamp">2 / 4</span>
+                        </div>
+                        <div class="ticket-timer-bar"><i data-lvl-bar="2"></i></div>
+                    </div>
+                </div>
+
+                <div class="oven-chamber">
+                    <span class="temp-badge">🔥 300°C</span>
+                    <div class="baker-peel">
+                        <div class="dish-megruli lvl2-bake">
+                            <div class="crust-spots"></div>
+                            <div class="cheese-bubbles"></div>
+                        </div>
+                    </div>
+                    <div class="timer-bar-container lvl2-bar">
+                        <div class="zone-raw"></div><div class="zone-perfect"></div><div class="zone-burnt"></div>
+                        <div class="timer-needle lvl2-needle"></div>
+                    </div>
+                </div>
+
+                <div class="oven-controls">
+                    <label for="scr-lose-raw" class="btn btn-oven-state lvl2-raw">Вихопити лопатою ⚡</label>
+                    <label for="scr-lvl2-post" class="btn btn-success btn-oven-state lvl2-perf">Вихопити лопатою ⚡</label>
+                    <label for="scr-lose-burnt" class="btn btn-dark btn-oven-state lvl2-burn">Вихопити лопатою ⚡</label>
+                </div>
+            </section>
+
+            <!-- 6B. РІВЕНЬ 2: МАСЛО ТА НАРІЗАННЯ НА 8 ЧАСТИН -->
+            <section class="screen screen-lvl2-post">
+                <div class="ticket-rail">
+                    <div class="order-ticket-paper">
+                        <div>
+                            <div class="order-title">ЧЕК №102 • Масло та нарізка Мегрельського</div>
+                            <div class="order-recipe-hint">Змасти маслом і розріж на 8 рівних частин</div>
+                        </div>
+                        <div class="ticket-right-meta">
+                            <span class="ticket-timer-badge" data-lvl-timer="2">⏱ 40.0с</span>
+                            <span class="ticket-stamp">2 / 4</span>
+                        </div>
+                        <div class="ticket-timer-bar"><i data-lvl-bar="2"></i></div>
+                    </div>
+                </div>
+
+                <div class="baker-table">
+                    <div class="interactive-board post-board">
+                        <div class="cut-zone" data-cut-lvl="2"><span class="board-prompt-pill">🔪 Проведи ножем по коржу (0 / 4 розрізи)</span></div>
+                        <div class="dough-entity">
+                            <div class="dish-megruli">
+                                <div class="crust-spots"></div>
+                                <div class="cheese-bubbles"></div>
+                                <div class="slice-lines"><i></i><i></i><i></i><i></i></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ingredients-grid" style="grid-template-columns: 1fr; max-width: 240px;">
+                        <label for="l2-post-butter" class="ing-card"><span class="emoji">🧈</span>Змастити маслом</label>
+                    </div>
+                </div>
+
+                <div class="action-bar">
+                    <span class="hint-text">Змасти маслом і розріж на 8 рівних частин</span>
+                    <label for="scr-lvl2-win" class="btn btn-bake-ready btn-success" data-serve-ticket="2">Подати та зняти чек 🧾</label>
+                </div>
+            </section>
+
+            <!-- 7. ПЕРЕМОГА ЕТАП 2 -->
+            <section class="screen screen-lvl2-win result-screen">
+                <div class="serving-table">
+                    <div class="wooden-board">
+                        <div class="steam-waves"><span>♨️</span><span>♨️</span></div>
+                        <div class="dish-serve-motion">
+                            <div class="dish-megruli" style="transform: scale(0.84);">
+                                <div class="crust-spots"></div>
+                                <div class="cheese-bubbles"></div>
+                                <div class="slice-lines"><i class="cut-done"></i><i class="cut-done"></i><i class="cut-done"></i><i class="cut-done"></i></div>
+                            </div>
+                            <span class="serve-hands">🙌</span>
+                        </div>
+                    </div>
+                </div>
+                <h2 class="result-title">Хачапурі по-мегрельськи подано • Чек знято</h2>
+                <p class="result-desc">Змащений маслом і рівно нарізаний на 8 шматків. Далі — фірмовий Кубдарі (340°C • 35с).</p>
+                <label for="scr-lvl3-prep" class="btn btn-success" style="max-width: 320px;">Чек №103 (Рівень 3 • 35с) ➡️</label>
+            </section>
+
+            <!-- 8. РІВЕНЬ 3: ЗБІРКА КУБДАРІ -->
+            <section class="screen screen-lvl3-prep">
+                <div class="ticket-rail">
+                    <span class="waiter-hand-ticket">🫴</span>
+                    <div class="order-ticket-paper">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div class="chef-avatar-slot chef-avatar-sm">
+                                <img src="assets/chef.png" alt="Шеф">
+                                <div class="avatar-placeholder"><svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div>
+                            </div>
+                            <div>
+                                <div class="order-title">ЧЕК №103 • Фірмовий Кубдарі</div>
+                                <div class="order-recipe-hint">Рецепт у «📖 Рецепти»</div>
+                            </div>
+                        </div>
+                        <div class="ticket-right-meta">
+                            <span class="ticket-timer-badge" data-lvl-timer="3">⏱ 35.0с</span>
+                            <span class="ticket-stamp">3 / 4</span>
+                        </div>
+                        <div class="ticket-timer-bar"><i data-lvl-bar="3"></i></div>
+                    </div>
+                </div>
+
+                <div class="baker-table">
+                    <div class="interactive-board">
+                        <label for="l3-dough" class="board-click-zone zone-step-1"><span class="board-prompt-pill">👆 Натисни: покласти тісто</span></label>
+                        <label for="l3-knead" class="board-click-zone zone-step-2"><span class="board-prompt-pill">👐 Натисни: розрівняти тісто</span></label>
+                        <label for="l3-sculpt" class="board-click-zone zone-step-3"><span class="board-prompt-pill">🤌 Натисни: защипнути краї</span></label>
+
+                        <div class="dough-entity">
+                            <div class="glaze-sheen"></div>
+                            <div class="layer-meat"></div>
+                            <div class="layer-butter"></div>
+                            <span class="layer-extra pos-1">🧅</span>
+                            <span class="layer-extra pos-2">🌶️</span>
+                            <span class="layer-extra pos-3">🧀</span>
+                            <span class="layer-extra pos-4">🍍</span>
+                        </div>
+                    </div>
+
+                    <div class="ingredients-grid">
+                        <label for="l3-meat" class="ing-card"><span class="emoji">🥩</span>М'ясо</label>
+                        <label for="l3-yolk" class="ing-card"><span class="emoji">🥚</span>Яйце</label>
+                        <label for="l3-onion" class="ing-card"><span class="emoji">🧅</span>Цибуля</label>
+                        <label for="l3-spices" class="ing-card"><span class="emoji">🌶️</span>Спеції</label>
+                        <label for="l3-butter" class="ing-card"><span class="emoji">🧈</span>Масло</label>
+                        <label for="l3-cheese" class="ing-card"><span class="emoji">🧀</span>Сулугуні</label>
+                        <label for="l3-greens" class="ing-card"><span class="emoji">🌿</span>Зелень</label>
+                        <label for="l3-pineapple" class="ing-card"><span class="emoji">🍍</span>Ананас</label>
+                        <label for="l3-olives" class="ing-card"><span class="emoji">🫒</span>Оливки</label>
+                    </div>
+                </div>
+
+                <div class="action-bar">
+                    <span class="hint-text">Зліпи Кубдарі та поклади правильну начинку</span>
+                    <label for="scr-lvl3-oven" class="btn btn-bake-ready">У піч (340°C) 🔥</label>
+                </div>
+            </section>
+
+            <!-- 9. РІВЕНЬ 3: ПІЧ -->
+            <section class="screen screen-lvl3-oven">
+                <div class="ticket-rail">
+                    <div class="order-ticket-paper">
+                        <div>
+                            <div class="order-title">ПІЧ ZIPEN.HOME • Кубдарі</div>
+                            <div class="order-recipe-hint">Стрімкий розгін • Зелена зона 6%</div>
+                        </div>
+                        <div class="ticket-right-meta">
+                            <span class="ticket-timer-badge" data-lvl-timer="3">⏱ 35.0с</span>
+                            <span class="ticket-stamp">3 / 4</span>
+                        </div>
+                        <div class="ticket-timer-bar"><i data-lvl-bar="3"></i></div>
+                    </div>
+                </div>
+
+                <div class="oven-chamber">
+                    <span class="temp-badge">🔥 340°C</span>
+                    <div class="baker-peel">
+                        <div class="dish-kubdari lvl3-bake">
+                            <div class="crust-spots"></div>
+                            <div class="kubdari-vent"></div>
+                        </div>
+                    </div>
+                    <div class="timer-bar-container lvl3-bar">
+                        <div class="zone-raw"></div><div class="zone-perfect"></div><div class="zone-burnt"></div>
+                        <div class="timer-needle lvl3-needle"></div>
+                    </div>
+                </div>
+
+                <div class="oven-controls">
+                    <label for="scr-lose-raw" class="btn btn-oven-state lvl3-raw">Вихопити лопатою ⚡</label>
+                    <label for="scr-lvl3-post" class="btn btn-success btn-oven-state lvl3-perf">Вихопити лопатою ⚡</label>
+                    <label for="scr-lose-burnt" class="btn btn-dark btn-oven-state lvl3-burn">Вихопити лопатою ⚡</label>
+                </div>
+            </section>
+
+            <!-- 9B. РІВЕНЬ 3: МАСЛО ТА НАРІЗАННЯ НА 8 ЧАСТИН -->
+            <section class="screen screen-lvl3-post">
+                <div class="ticket-rail">
+                    <div class="order-ticket-paper">
+                        <div>
+                            <div class="order-title">ЧЕК №103 • Масло та нарізка Кубдарі</div>
+                            <div class="order-recipe-hint">Змасти маслом і розріж на 8 рівних частин</div>
+                        </div>
+                        <div class="ticket-right-meta">
+                            <span class="ticket-timer-badge" data-lvl-timer="3">⏱ 35.0с</span>
+                            <span class="ticket-stamp">3 / 4</span>
+                        </div>
+                        <div class="ticket-timer-bar"><i data-lvl-bar="3"></i></div>
+                    </div>
+                </div>
+
+                <div class="baker-table">
+                    <div class="interactive-board post-board">
+                        <div class="cut-zone" data-cut-lvl="3"><span class="board-prompt-pill">🔪 Проведи ножем по коржу (0 / 4 розрізи)</span></div>
+                        <div class="dough-entity">
+                            <div class="dish-kubdari">
+                                <div class="crust-spots"></div>
+                                <div class="kubdari-vent"></div>
+                                <div class="slice-lines"><i></i><i></i><i></i><i></i></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ingredients-grid" style="grid-template-columns: 1fr; max-width: 240px;">
+                        <label for="l3-post-butter" class="ing-card"><span class="emoji">🧈</span>Змастити маслом</label>
+                    </div>
+                </div>
+
+                <div class="action-bar">
+                    <span class="hint-text">Змасти маслом і розріж на 8 рівних частин</span>
+                    <label for="scr-lvl3-win" class="btn btn-bake-ready btn-success" data-serve-ticket="3">Подати та зняти чек 🧾</label>
+                </div>
+            </section>
+
+            <!-- 10. ПЕРЕМОГА ЕТАП 3 -->
+            <section class="screen screen-lvl3-win result-screen">
+                <div class="serving-table">
+                    <div class="wooden-board">
+                        <div class="steam-waves"><span>♨️</span><span>♨️</span></div>
+                        <div class="dish-serve-motion">
+                            <div class="dish-kubdari" style="transform: scale(0.82);">
+                                <div class="crust-spots"></div>
+                                <div class="kubdari-vent"></div>
+                                <div class="slice-lines"><i class="cut-done"></i><i class="cut-done"></i><i class="cut-done"></i><i class="cut-done"></i></div>
+                            </div>
+                            <span class="serve-hands">🙌</span>
+                        </div>
+                    </div>
+                </div>
+                <h2 class="result-title">Фірмовий Кубдарі подано • Чек знято</h2>
+                <p class="result-desc">Змащений вершковим маслом і нарізаний на 8 шматків. Попереду фінальне VIP-замовлення (30 секунд).</p>
+                <label for="scr-lvl4-prep" class="btn btn-success" style="max-width: 320px;">VIP-Чек №104 (30с) ➡️</label>
+            </section>
+
+            <!-- 11. РІВЕНЬ 4 (БОС): ЗБІРКА ЛОБІАНІ -->
+            <section class="screen screen-lvl4-prep">
+                <div class="ticket-rail">
+                    <span class="waiter-hand-ticket">🫴</span>
+                    <div class="order-ticket-paper" style="border-left-color: #ef4444;">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div class="chef-avatar-slot chef-avatar-sm">
+                                <img src="assets/chef.png" alt="Шеф">
+                                <div class="avatar-placeholder"><svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div>
+                            </div>
+                            <div>
+                                <div class="order-title">VIP-ЧЕК №104 • Лобіані</div>
+                                <div class="order-recipe-hint">Перевір 4-й рецепт у «📖 Рецепти»</div>
+                            </div>
+                        </div>
+                        <div class="ticket-right-meta">
+                            <span class="ticket-timer-badge" data-lvl-timer="4">⏱ 30.0с</span>
+                            <span class="ticket-stamp">BOSS • 4/4</span>
+                        </div>
+                        <div class="ticket-timer-bar"><i data-lvl-bar="4"></i></div>
+                    </div>
+                </div>
+
+                <div class="baker-table">
+                    <div class="interactive-board">
+                        <label for="l4-dough" class="board-click-zone zone-step-1"><span class="board-prompt-pill">👆 Натисни: покласти тісто</span></label>
+                        <label for="l4-knead" class="board-click-zone zone-step-2"><span class="board-prompt-pill">👐 Натисни: розрівняти основу</span></label>
+                        <label for="l4-sculpt" class="board-click-zone zone-step-3"><span class="board-prompt-pill">🤌 Натисни: зліпити бортик</span></label>
+
+                        <div class="dough-entity">
+                            <div class="glaze-sheen"></div>
+                            <div class="layer-cheese" style="width: 90%; height: 90%;"></div>
+                            <div class="layer-meat"></div>
+                            <div class="layer-yolk"></div>
+                            <div class="layer-butter"></div>
+                            <span class="layer-extra pos-1">🌿</span>
+                            <span class="layer-extra pos-2">🍍</span>
+                            <span class="layer-extra pos-3">🍅</span>
+                            <span class="layer-extra pos-4">🍄</span>
+                        </div>
+                    </div>
+
+                    <div class="ingredients-grid">
+                        <label for="l4-cheese" class="ing-card"><span class="emoji">🧀</span>Сулугуні</label>
+                        <label for="l4-meat" class="ing-card"><span class="emoji">🫘</span>Лобіо</label>
+                        <label for="l4-yolk" class="ing-card"><span class="emoji">🥚</span>Яйце</label>
+                        <label for="l4-greens" class="ing-card"><span class="emoji">🌿</span>Зелень</label>
+                        <label for="l4-butter" class="ing-card"><span class="emoji">🧈</span>Масло</label>
+                        <label for="l4-pineapple" class="ing-card"><span class="emoji">🍍</span>Ананас</label>
+                        <label for="l4-ketchup" class="ing-card"><span class="emoji">🍅</span>Кетчуп</label>
+                        <label for="l4-mushrooms" class="ing-card"><span class="emoji">🍄</span>Гриби</label>
+                    </div>
+                </div>
+
+                <div class="action-bar">
+                    <span class="hint-text">Збери повний склад Лобіані за рецептом</span>
+                    <label for="scr-lvl4-oven" class="btn btn-bake-ready">У піч (380°C BOSS) 🔥</label>
+                </div>
+            </section>
+
+            <!-- 12. РІВЕНЬ 4: ПІЧ -->
+            <section class="screen screen-lvl4-oven">
+                <div class="ticket-rail">
+                    <div class="order-ticket-paper">
+                        <div>
+                            <div class="order-title">ПЕКЕЛЬНИЙ ЖАР • Лобіані</div>
+                            <div class="order-recipe-hint">Зелена зона 5% — не піддайся хибному ривку!</div>
+                        </div>
+                        <div class="ticket-right-meta">
+                            <span class="ticket-timer-badge" data-lvl-timer="4">⏱ 30.0с</span>
+                            <span class="ticket-stamp">4/4 BOSS</span>
+                        </div>
+                        <div class="ticket-timer-bar"><i data-lvl-bar="4"></i></div>
+                    </div>
+                </div>
+
+                <div class="oven-chamber">
+                    <span class="temp-badge">🔥 380°C BOSS</span>
+                    <div class="baker-peel">
+                        <div class="dish-tsar lvl4-bake">
+                            <div class="crust-spots"></div>
+                            <div class="cheese-bubbles"></div>
+                        </div>
+                    </div>
+                    <div class="timer-bar-container lvl4-bar">
+                        <div class="zone-raw"></div><div class="zone-perfect"></div><div class="zone-burnt"></div>
+                        <div class="timer-needle lvl4-needle"></div>
+                    </div>
+                </div>
+
+                <div class="oven-controls">
+                    <label for="scr-lose-raw" class="btn btn-oven-state lvl4-raw">Вихопити лопатою ⚡</label>
+                    <label for="scr-lvl4-post" class="btn btn-success btn-oven-state lvl4-perf">Вихопити лопатою ⚡</label>
+                    <label for="scr-lose-burnt" class="btn btn-dark btn-oven-state lvl4-burn">Вихопити лопатою ⚡</label>
+                </div>
+            </section>
+
+            <!-- 12B. РІВЕНЬ 4: МАСЛО ТА НАРІЗАННЯ НА 8 ЧАСТИН -->
+            <section class="screen screen-lvl4-post">
+                <div class="ticket-rail">
+                    <div class="order-ticket-paper">
+                        <div>
+                            <div class="order-title">VIP-ЧЕК №104 • Масло та нарізка Лобіані</div>
+                            <div class="order-recipe-hint">Змасти маслом і розріж на 8 рівних частин</div>
+                        </div>
+                        <div class="ticket-right-meta">
+                            <span class="ticket-timer-badge" data-lvl-timer="4">⏱ 30.0с</span>
+                            <span class="ticket-stamp">4/4 BOSS</span>
+                        </div>
+                        <div class="ticket-timer-bar"><i data-lvl-bar="4"></i></div>
+                    </div>
+                </div>
+
+                <div class="baker-table">
+                    <div class="interactive-board post-board">
+                        <div class="cut-zone" data-cut-lvl="4"><span class="board-prompt-pill">🔪 Проведи ножем по коржу (0 / 4 розрізи)</span></div>
+                        <div class="dough-entity">
+                            <div class="dish-tsar">
+                                <div class="crust-spots"></div>
+                                <div class="cheese-bubbles"></div>
+                                <div class="slice-lines"><i></i><i></i><i></i><i></i></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ingredients-grid" style="grid-template-columns: 1fr; max-width: 240px;">
+                        <label for="l4-post-butter" class="ing-card"><span class="emoji">🧈</span>Змастити маслом</label>
+                    </div>
+                </div>
+
+                <div class="action-bar">
+                    <span class="hint-text">Змасти маслом і розріж на 8 рівних частин</span>
+                    <label for="scr-final-win" class="btn btn-bake-ready btn-success" data-serve-ticket="4">Подати та зняти чек 🧾</label>
+                </div>
+            </section>
+
+            <!-- 13. ФІНАЛЬНА ПЕРЕМОГА -->
+            <section class="screen screen-final-win result-screen">
+                <div style="display: flex; align-items: center; gap: 18px; flex-wrap: wrap; justify-content: center;">
+                    <div class="serving-table" style="max-width: 310px; height: 190px;">
+                        <div class="wooden-board">
+                            <div class="steam-waves"><span>♨️</span><span>♨️</span></div>
+                            <div class="dish-serve-motion">
+                                <div class="dish-tsar" style="transform: scale(0.8);">
+                                    <div class="crust-spots"></div>
+                                    <div class="cheese-bubbles"></div>
+                                    <div class="slice-lines"><i class="cut-done"></i><i class="cut-done"></i><i class="cut-done"></i><i class="cut-done"></i></div>
+                                </div>
+                                <span class="serve-hands">🙌</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="chef-avatar-slot chef-avatar-lg">
+                        <img src="assets/chef.png" alt="Бренд-шеф zipen.home">
+                        <div class="avatar-placeholder">
+                            <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+                            <span>chef.png</span>
+                        </div>
+                    </div>
+                </div>
+
+                <h2 class="result-title" style="color: var(--accent);">Бренд-шеф zipen.home</h2>
+                <p class="result-desc">Лобіані на столі видачі! Ти витримав жорсткий таймінг зміни, спечені та нарізані всі 4 страви.</p>
+                <button type="reset" class="btn" style="max-width: 320px;">Пройти зміну ще раз 🔄</button>
+            </section>
+
+            <!-- 14. ПОРАЗКА: СИРЕ -->
+            <section class="screen screen-lose-raw result-screen">
+                <div class="serving-table">
+                    <div class="wooden-board">
+                        <div class="dish-serve-motion">
+                            <div class="dish-megruli" style="transform: scale(0.8); filter: brightness(1.35) saturate(0.25);"></div>
+                            <span class="serve-hands">🙌</span>
+                        </div>
+                    </div>
+                </div>
+                <h2 class="result-title" style="color: var(--danger);">Занадто рано — страва сира</h2>
+                <p class="result-desc">Тісто бліде й непропечене. Дочекайся, поки індикатор увійде в зелену зону.</p>
+                <button type="reset" class="btn" style="max-width: 320px;">Спробувати ще раз 🔄</button>
+            </section>
+
+            <!-- 15. ПОРАЗКА: ЗГОРІЛО -->
+            <section class="screen screen-lose-burnt result-screen">
+                <div class="serving-table">
+                    <div class="wooden-board">
+                        <div class="steam-waves" style="opacity: 0.9;"><span>💨</span><span>🖤</span></div>
+                        <div class="dish-serve-motion">
+                            <div class="dish-megruli" style="transform: scale(0.8); filter: brightness(0.16) grayscale(1);"></div>
+                            <span class="serve-hands">🙌</span>
+                        </div>
+                    </div>
+                </div>
+                <h2 class="result-title" style="color: var(--danger);">Згоріло на вугілля</h2>
+                <p class="result-desc">У розпеченій печі zipen.home кожна мілісекунда вирішальна — страва обвуглилася.</p>
+                <button type="reset" class="btn" style="max-width: 320px;">Спробувати ще раз 🔄</button>
+            </section>
+
+            <!-- 16. ПОРАЗКА: ЧАС ВИЙШОВ -->
+            <section class="screen screen-lose-time result-screen">
+                <div class="serving-table">
+                    <div class="wooden-board">
+                        <div style="font-size: 3.4rem;">⏰</div>
+                    </div>
+                </div>
+                <h2 class="result-title" style="color: var(--danger);">Час чека вичерпано — гість пішов</h2>
+                <p class="result-desc">Замовлення готувалося занадто довго. Працюй швидше на столі й не гай секунд перед подачею.</p>
+                <button type="reset" class="btn" style="max-width: 320px;">Спробувати ще раз 🔄</button>
+            </section>
+
+        </div>
+    </form>
+
+
+<!-- ===== ВХІД / РЕЄСТРАЦІЯ (пічка) ===== -->
+<div class="auth-gate is-pending" id="auth-gate" role="dialog" aria-modal="true" aria-labelledby="auth-title">
+  <div class="kitchen" aria-hidden="true">
+    <div class="k-wall"></div>
+    <div class="k-tiles"></div>
+    <div class="k-counter"></div>
+    <div class="k-shade"></div>
+  </div>
+  <div class="auth-card">
+    <div class="auth-brand">zipen<span>.home</span></div>
+    <div class="oven">
+      <div class="oven-panel">
+        <div class="knob" aria-hidden="true"></div>
+        <div class="knob" aria-hidden="true"></div>
+        <div class="oven-display" aria-hidden="true"><span class="d-off">OFF</span><span class="d-on">180°</span></div>
+        <div class="knob" aria-hidden="true"></div>
+        <button type="button" class="knob knob-power" id="oven-power" aria-pressed="false" aria-label="Увімкнути пічку"></button>
+      </div>
+      <div class="oven-door">
+        <div class="oven-handle"></div>
+        <div class="oven-bezel">
+          <div class="oven-window">
+            <div class="oven-hint"><b>Пічка вимкнена</b><span>Поверніть яскраву ручку праворуч угорі, щоб увімкнути її та увійти в гру.</span></div>
+            <div class="oven-content">
+              <div id="auth-loading" class="auth-loading">Завантаження…</div>
+              <div id="auth-config-warn" class="auth-msg" hidden>Firebase ще не налаштований. Відкрийте index.html, знайдіть блок firebaseConfig і вставте свої ключі (див. README.md).</div>
+              <div id="auth-panel" hidden>
+                <h1 id="auth-title">Увійдіть, щоб грати</h1>
+                <p class="auth-lead">Акаунт зберігає ваші рекорди та зірки на будь-якому пристрої.</p>
+                <div class="auth-tabs" role="tablist">
+                  <button type="button" class="auth-tab is-on" data-tab="email" role="tab">Пошта</button>
+                  <button type="button" class="auth-tab" data-tab="phone" role="tab">Телефон</button>
+                </div>
+
+                <form id="form-email" novalidate>
+                  <label class="auth-field" id="em-name-wrap" hidden><span>Ім’я в грі</span><input id="em-name" type="text" maxlength="30" autocomplete="nickname" placeholder="Наприклад, Кухар"></label>
+                  <label class="auth-field"><span>Пошта</span><input id="em-email" type="email" autocomplete="email" inputmode="email" placeholder="you@example.com"></label>
+                  <label class="auth-field"><span>Пароль</span><input id="em-pass" type="password" autocomplete="current-password" placeholder="Мінімум 6 символів"></label>
+                  <button type="submit" class="auth-btn" id="em-submit">Увійти</button>
+                  <div class="auth-links">
+                    <button type="button" class="auth-link" id="em-toggle">Немає акаунта? Зареєструватися</button>
+                    <button type="button" class="auth-link" id="em-forgot">Забули пароль?</button>
+                  </div>
+                </form>
+
+                <form id="form-phone" novalidate hidden>
+                  <div id="ph-step1">
+                    <label class="auth-field"><span>Номер телефону</span><input id="ph-num" type="tel" autocomplete="tel" inputmode="tel" placeholder="+380 50 123 45 67"></label>
+                    <button type="submit" class="auth-btn" id="ph-send">Отримати код у SMS</button>
+                  </div>
+                  <div id="ph-step2" hidden>
+                    <label class="auth-field"><span>Код із SMS</span><input id="ph-code" type="text" autocomplete="one-time-code" inputmode="numeric" maxlength="6" placeholder="123456"></label>
+                    <button type="submit" class="auth-btn" id="ph-confirm">Підтвердити</button>
+                    <div class="auth-links"><button type="button" class="auth-link" id="ph-back">Змінити номер</button></div>
+                  </div>
+                </form>
+
+                <div id="auth-msg" class="auth-msg" role="alert" aria-live="polite"></div>
+                <p class="auth-note">Пошту або номер телефону використовуємо лише для входу.</p>
+              </div>
+            </div>
+            <div class="oven-sheen" aria-hidden="true"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="recaptcha-container"></div>
+  </div>
+</div>
+<script src="js/oven.js"></script>
+<script src="js/game.js"></script>
+<script src="js/dough.js"></script>
+<script src="js/animations.js"></script>
+<script type="module" src="js/firebase-auth.js"></script>
+<!-- мова сайту: перемикач UA / SK / EN -->
+<script src="js/i18n.js"></script>
+</body>
+</html>
